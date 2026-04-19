@@ -3,96 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Seekers Rentals</title>
+    <title>Adventure Seekers | Elite Housing Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #ffffff; color: #222; font-family: 'Georgia', serif; }
-        .gold-text { color: #b8860b; }
-        .gold-bg { background-color: #b8860b; }
-        .card { border: 1px solid #f0f0f0; transition: 0.3s; }
-        .card:hover { border-color: #b8860b; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        body { background-color: #f8fafc; font-family: 'Segoe UI', sans-serif; }
+        .hero-gradient { background: linear-gradient(180deg, #0a254d 0%, #163e7a 100%); }
+        .text-brand { color: #0a254d; }
+        .btn-brand { background-color: #0a254d; color: white; transition: 0.3s; }
+        .btn-brand:hover { background-color: #1c4a8a; transform: translateY(-2px); }
         
         /* Floating WhatsApp Icon */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #25d366; color: white; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 30px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        .whatsapp-float { 
+            position: fixed; bottom: 25px; right: 25px; 
+            background-color: #25d366; color: white; 
+            width: 65px; height: 65px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 32px; z-index: 9999; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            transition: 0.3s;
         }
-
-        /* Detail Pop-up (Modal) Logic */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
-        .modal-content { background: white; margin: 10% auto; padding: 30px; width: 90%; max-width: 500px; border-radius: 10px; position: relative; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        
+        .property-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #edf2f7; transition: 0.3s; }
+        .property-card:hover { transform: translateY(-10px); border-color: #0a254d; }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/YOUR_NUMBER" class="whatsapp-float">
+    <a href="https://wa.me/YOUR_NUMBER" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <nav class="p-8 flex justify-between items-center border-b border-gray-50 bg-white">
-        <h1 class="text-2xl font-bold tracking-tighter gold-text italic">ADVENTURE SEEKERS</h1>
-        <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Europe • UK • USA</p>
-    </nav>
-
-    <header class="py-20 text-center px-6">
-        <h2 class="text-5xl font-light mb-4">Elite <span class="italic gold-text">Residential</span> Portfolio</h2>
-        <div class="h-1 w-20 gold-bg mx-auto mb-6"></div>
-        <p class="text-gray-500 uppercase tracking-[0.2em] text-[10px]">1, 2, & 3 Bedroom Luxury Options</p>
+    <header class="hero-gradient text-white pt-16 pb-24 px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tighter mb-4">ADVENTURE SEEKERS</h1>
+        <p class="text-xs tracking-[0.4em] font-light opacity-80 uppercase">Premium Residential • Global Solutions</p>
     </header>
 
-    <section class="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 md:grid-cols-3 gap-12">
-        
-        <div class="card p-4 rounded-xl">
-            <div class="h-48 bg-gray-100 mb-6 flex items-center justify-center text-gray-300 italic">Exterior Image</div>
-            <p class="gold-text text-[10px] font-bold uppercase mb-2">France</p>
-            <h3 class="text-xl font-bold mb-4">Parisian Executive</h3>
-            <button onclick="showDetails('1 Bed', '1 Kitchen', '1 Toilet', '€2,100/mo')" class="w-full py-3 border border-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">See Options</button>
+    <section class="max-w-2xl mx-auto -mt-16 px-6">
+        <div class="bg-white rounded-3xl p-10 shadow-2xl text-center">
+            <h2 class="text-2xl font-bold text-brand mb-4">Global Property Search</h2>
+            <p class="text-gray-400 text-xs mb-8 uppercase tracking-widest">Find your next home in Europe, UK or USA</p>
+            <input type="text" placeholder="Enter Destination..." class="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl mb-4 outline-none focus:border-blue-900 transition">
+            <button class="w-full btn-brand py-4 rounded-2xl font-bold text-lg">BROWSE LISTINGS</button>
         </div>
-
-        <div class="card p-4 rounded-xl">
-            <div class="h-48 bg-gray-100 mb-6 flex items-center justify-center text-gray-300 italic">Exterior Image</div>
-            <p class="gold-text text-[10px] font-bold uppercase mb-2">Italy</p>
-            <h3 class="text-xl font-bold mb-4">Tuscan Sun Suite</h3>
-            <button onclick="showDetails('2 Beds', 'Full Kitchen', '2 Toilets', '€3,500/mo')" class="w-full py-3 border border-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">See Options</button>
-        </div>
-
-        <div class="card p-4 rounded-xl">
-            <div class="h-48 bg-gray-100 mb-6 flex items-center justify-center text-gray-300 italic">Exterior Image</div>
-            <p class="gold-text text-[10px] font-bold uppercase mb-2">Greece</p>
-            <h3 class="text-xl font-bold mb-4">Santorini Grand</h3>
-            <button onclick="showDetails('3 Beds', 'Chef Kitchen', '3 Toilets', '€5,200/mo')" class="w-full py-3 border border-black text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">See Options</button>
-        </div>
-
     </section>
 
-    <div id="detailModal" class="modal">
-        <div class="modal-content text-center">
-            <h3 class="text-2xl font-bold mb-6 gold-text">Property Details</h3>
-            <div class="space-y-4 text-gray-600 mb-8">
-                <p id="m-bed" class="border-b pb-2"></p>
-                <p id="m-kitchen" class="border-b pb-2"></p>
-                <p id="m-toilet" class="border-b pb-2"></p>
-                <p id="m-price" class="text-xl font-bold text-black"></p>
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="property-card">
+                <div class="h-52 bg-gray-100 flex items-center justify-center italic text-gray-300">Property View - Paris</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-bold text-blue-800 uppercase tracking-widest">France</span>
+                        <span class="text-xl font-bold text-brand">€2,400<small class="text-xs text-gray-400">/mo</small></span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Le Marais Studio</h4>
+                    <div class="grid grid-cols-2 gap-4 text-xs text-gray-500 mb-8 font-semibold">
+                        <span><i class="fa fa-bed mr-2 text-brand"></i> 1 Bedroom</span>
+                        <span><i class="fa fa-utensils mr-2 text-brand"></i> Kitchen</span>
+                        <span><i class="fa fa-toilet mr-2 text-brand"></i> 1 Toilet</span>
+                        <span><i class="fa fa-wifi mr-2 text-brand"></i> WiFi Included</span>
+                    </div>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-blue-900 hover:text-white transition">See Options</button>
+                </div>
             </div>
-            <button onclick="closeDetails()" class="text-xs uppercase underline tracking-widest">Close</button>
-        </div>
-    </div>
 
-    <script>
-        function showDetails(bed, kitchen, toilet, price) {
-            document.getElementById('m-bed').innerHTML = '<i class="fa fa-bed mr-2"></i> ' + bed;
-            document.getElementById('m-kitchen').innerHTML = '<i class="fa fa-utensils mr-2"></i> ' + kitchen;
-            document.getElementById('m-toilet').innerHTML = '<i class="fa fa-toilet mr-2"></i> ' + toilet;
-            document.getElementById('m-price').innerText = price;
-            document.getElementById('detailModal').style.display = "block";
-        }
-        function closeDetails() {
-            document.getElementById('detailModal').style.display = "none";
-        }
-    </script>
+            <div class="property-card">
+                <div class="h-52 bg-gray-100 flex items-center justify-center italic text-gray-300">Property View - Florence</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-bold text-blue-800 uppercase tracking-widest">Italy</span>
+                        <span class="text-xl font-bold text-brand">€3,600<small class="text-xs text-gray-400">/mo</small></span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Tuscan Sun Suite</h4>
+                    <div class="grid grid-cols-2 gap-4 text-xs text-gray-500 mb-8 font-semibold">
+                        <span><i class="fa fa-bed mr-2 text-brand"></i> 2 Bedrooms</span>
+                        <span><i class="fa fa-utensils mr-2 text-brand"></i> Full Kitchen</span>
+                        <span><i class="fa fa-toilet mr-2 text-brand"></i> 2 Toilets</span>
+                        <span><i class="fa fa-parking mr-2 text-brand"></i> Parking</span>
+                    </div>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-blue-900 hover:text-white transition">See Options</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="h-52 bg-gray-100 flex items-center justify-center italic text-gray-300">Property View - Berlin</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-bold text-blue-800 uppercase tracking-widest">Germany</span>
+                        <span class="text-xl font-bold text-brand">€4,800<small class="text-xs text-gray-400">/mo</small></span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Skyline Penthouse</h4>
+                    <div class="grid grid-cols-2 gap-4 text-xs text-gray-500 mb-8 font-semibold">
+                        <span><i class="fa fa-bed mr-2 text-brand"></i> 3 Bedrooms</span>
+                        <span><i class="fa fa-utensils mr-2 text-brand"></i> Chef Kitchen</span>
+                        <span><i class="fa fa-toilet mr-2 text-brand"></i> 3 Toilets</span>
+                        <span><i class="fa fa-shield-alt mr-2 text-brand"></i> Concierge</span>
+                    </div>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-blue-900 hover:text-white transition">See Options</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-50 py-16 text-center border-t border-gray-200">
+        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-4 font-bold">Adventure Seekers Global</p>
+        <p class="text-xs text-gray-500 italic">"Excellence in Global Residential Logistics."</p>
+    </footer>
 
 </body>
 </html>
