@@ -1,118 +1,133 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Seekers | Global Property Experts</title>
+    <title>Adventure Seekers | Global Property Portal</title>
     <style>
-        :root { --accent: #d4af37; --bg-dark: #121212; --text-gray: #555; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f0f2f5; color: #333; }
+        :root { --accent: #d4af37; --bg-dark: #121212; --white: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f0f2f5; color: #333; }
+        
         header { background: var(--bg-dark); color: var(--accent); padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
-        header h1 { margin: 0; letter-spacing: 2px; text-transform: uppercase; font-size: 2.2em; }
+        header h1 { margin: 0; letter-spacing: 2px; text-transform: uppercase; }
+        
         .container { max-width: 1100px; margin: -30px auto 50px; padding: 0 15px; }
         .search-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); text-align: center; }
         input { width: 90%; padding: 15px; border: 1px solid #ddd; border-radius: 30px; font-size: 16px; outline: none; }
+
         #property-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 40px; }
-        .house-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .house-info { padding: 25px; flex-grow: 1; }
-        .location { color: var(--accent); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .address { font-size: 14px; color: #888; margin-bottom: 10px; display: block; }
+        
+        .house-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; position: relative; }
+        .house-info { padding: 25px; }
+        .location { color: var(--accent); font-size: 12px; font-weight: bold; text-transform: uppercase; }
         .price { color: #111; font-size: 24px; font-weight: bold; margin: 10px 0; }
-        .description { font-size: 14px; color: var(--text-gray); line-height: 1.5; margin: 15px 0; padding-top: 15px; border-top: 1px solid #eee; }
-        .tag-container { margin-bottom: 15px; }
-        .tag { display: inline-block; background: #f8f1d7; color: #856404; padding: 4px 10px; border-radius: 5px; font-size: 12px; margin-right: 5px; margin-bottom: 5px; font-weight: bold; }
-        .btn { display: block; background: var(--bg-dark); color: var(--accent); text-align: center; padding: 16px; text-decoration: none; font-weight: bold; border-radius: 10px; border: 1px solid var(--accent); transition: 0.3s; }
-        .btn:hover { background: var(--accent); color: white; }
-        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; padding: 14px 22px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        
+        /* Buttons */
+        .btn-main { display: block; background: var(--bg-dark); color: var(--accent); text-align: center; padding: 14px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 10px; border: 1px solid var(--accent); cursor: pointer; }
+        .btn-detail { display: block; background: #f8f8f8; color: #555; text-align: center; padding: 10px; text-decoration: none; font-size: 14px; border-radius: 8px; margin-top: 10px; border: 1px solid #ddd; cursor: pointer; }
+
+        /* The Modal (Pop-up Window) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: white; margin: 5% auto; padding: 30px; width: 90%; max-width: 600px; border-radius: 20px; position: relative; }
+        .close-modal { position: absolute; right: 20px; top: 20px; font-size: 30px; cursor: pointer; color: #999; }
+        
+        .modal-h3 { color: var(--bg-dark); margin-top: 0; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        .modal-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+        .feature-item { background: #f9f9f9; padding: 10px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--accent); }
+
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; padding: 14px 22px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; }
         footer { text-align: center; padding: 60px 20px; background: var(--bg-dark); color: #777; }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/447478710824" class="whatsapp-float" target="_blank">Enquire on WhatsApp</a>
+<a href="https://wa.me/447478710824" class="whatsapp-float" target="_blank">WhatsApp Agent</a>
 
 <header>
     <h1>ADVENTURE SEEKERS</h1>
-    <p>LUXURY REAL ESTATE • GLOBAL LISTINGS</p>
+    <p>INTERNATIONAL PROPERTY PORTAL</p>
 </header>
 
 <div class="container">
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by city, address, or house type..." onkeyup="searchHouses()">
+        <input type="text" id="searchInput" placeholder="Search by city or country..." onkeyup="searchHouses()">
     </div>
 
     <div id="property-list">
         <div class="house-card">
             <div class="house-info">
                 <p class="location">📍 Dublin, Ireland</p>
-                <span class="address">No. 42, O'Connell Street, Dublin 1</span>
-                <h3>Charming Georgian Apartment</h3>
+                <h3>No. 42 O'Connell Street</h3>
                 <p class="price">€1,850 / month</p>
-                <div class="tag-container">
-                    <span class="tag">🛏️ 2 Bed</span>
-                    <span class="tag">🛁 1 Bath</span>
-                    <span class="tag">🍳 Chef's Kitchen</span>
-                </div>
-                <p class="description">A stunning top-floor apartment featuring high ceilings and original fireplaces. Located in the heart of Dublin, just steps away from major transport links and shopping districts.</p>
-                <a href="https://wa.me/447478710824?text=Interested in No. 42 Dublin" class="btn" target="_blank">BOOK INSPECTION</a>
+                <button class="btn-detail" onclick="openModal('Dublin Flat', 'No. 42 O\'Connell Street, Dublin 1', '€1,850', '2 Bedrooms, 1 Bathroom, Full Kitchen', 'This historic Georgian-style apartment offers stunning city views, a large master bedroom with fitted wardrobes, and a newly renovated kitchen with stainless steel appliances. Perfect for city professionals.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in Dublin Flat" class="btn-main">BOOK INSPECTION</a>
             </div>
         </div>
 
         <div class="house-card">
             <div class="house-info">
-                <p class="location">📍 Atlanta, Georgia, USA</p>
-                <span class="address">1152 Peachtree Rd NW, Atlanta, GA 30309</span>
-                <h3>Modern Family Suburban Home</h3>
+                <p class="location">📍 Houston, USA</p>
+                <h3>1152 Peachtree Rd NW</h3>
                 <p class="price">$2,200 / month</p>
-                <div class="tag-container">
-                    <span class="tag">🛏️ 3 Bed</span>
-                    <span class="tag">🛁 2.5 Bath</span>
-                    <span class="tag">🚗 Garage</span>
-                </div>
-                <p class="description">Perfect for families! This home offers a spacious open-concept living area, a newly renovated kitchen with marble countertops, and a large fenced backyard for children.</p>
-                <a href="https://wa.me/447478710824?text=Interested in 1152 Peachtree Rd USA" class="btn" target="_blank">BOOK INSPECTION</a>
-            </div>
-        </div>
-
-        <div class="house-card">
-            <div class="house-info">
-                <p class="location">📍 Helsinki, Finland</p>
-                <span class="address">Mannerheimintie 12, 00100 Helsinki</span>
-                <h3>Nordic Design City Studio</h3>
-                <p class="price">€1,050 / month</p>
-                <div class="tag-container">
-                    <span class="tag">🛏️ 1 Bed</span>
-                    <span class="tag">🛁 1 Bath</span>
-                    <span class="tag">🧖 Private Sauna</span>
-                </div>
-                <p class="description">A sleek, minimalist studio apartment designed for comfort. Includes a private Finnish sauna and heated flooring. High-speed internet included, perfect for remote workers.</p>
-                <a href="https://wa.me/447478710824?text=Interested in Mannerheimintie 12 Finland" class="btn" target="_blank">BOOK INSPECTION</a>
-            </div>
-        </div>
-
-        <div class="house-card">
-            <div class="house-info">
-                <p class="location">📍 London, UK</p>
-                <span class="address">Flat 7, 18 Kensington Gardens, W8 4QH</span>
-                <h3>Luxury Executive Suite</h3>
-                <p class="price">£2,400 / month</p>
-                <div class="tag-container">
-                    <span class="tag">🛏️ 1 Bed</span>
-                    <span class="tag">🛁 1 Bath</span>
-                    <span class="tag">🛡️ 24h Security</span>
-                </div>
-                <p class="description">An exclusive residence overlooking the park. Fully furnished with designer pieces, a modern fitted kitchen, and a concierge service. Ideal for professionals.</p>
-                <a href="https://wa.me/447478710824?text=Interested in Kensington Gardens London" class="btn" target="_blank">BOOK INSPECTION</a>
+                <button class="btn-detail" onclick="openModal('Suburban Home', '1152 Peachtree Rd NW, Atlanta, USA', '$2,200', '3 Bedrooms, 2.5 Bathrooms, 2-Car Garage, Backyard', 'A beautiful family home in a quiet neighborhood. Features include a spacious open-concept living area, high-end kitchen cabinets, and a massive backyard for outdoor activities.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in Houston Home" class="btn-main">BOOK INSPECTION</a>
             </div>
         </div>
     </div>
 </div>
 
+<div id="houseModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3 id="m-title" class="modal-h3">House Details</h3>
+        <p><strong>Address:</strong> <span id="m-address"></span></p>
+        <p><strong>Price:</strong> <span id="m-price"></span></p>
+        
+        <div class="modal-features" id="m-features">
+            </div>
+
+        <p id="m-desc" style="line-height:1.6; color:#555;"></p>
+        
+        <a id="m-wa" href="#" class="btn-main" target="_blank">CONTACT AGENT ABOUT THIS HOUSE</a>
+    </div>
+</div>
+
 <footer>
-    <p>&copy; 2026 Adventure Seekers Rentals. Registered International Agency.</p>
+    <p>&copy; 2026 Adventure Seekers Rentals.</p>
 </footer>
 
 <script>
+    function openModal(title, address, price, features, desc) {
+        document.getElementById('m-title').innerText = title;
+        document.getElementById('m-address').innerText = address;
+        document.getElementById('m-price').innerText = price;
+        document.getElementById('m-desc').innerText = desc;
+        
+        // Split features by comma and create boxes
+        const featList = features.split(',');
+        let featHtml = '';
+        featList.forEach(f => {
+            featHtml += `<div class="feature-item">✔️ ${f.trim()}</div>`;
+        });
+        document.getElementById('m-features').innerHTML = featHtml;
+        
+        // Update WhatsApp link in modal
+        document.getElementById('m-wa').href = "https://wa.me/447478710824?text=I want more details about " + address;
+        
+        document.getElementById('houseModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('houseModal').style.display = "none";
+    }
+
+    // Close modal if user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('houseModal')) {
+            closeModal();
+        }
+    }
+
     function searchHouses() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.getElementsByClassName('house-card');
@@ -125,4 +140,3 @@
 
 </body>
 </html>
-
