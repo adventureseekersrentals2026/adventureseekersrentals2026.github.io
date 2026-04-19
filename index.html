@@ -17,21 +17,18 @@
 
         #property-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 40px; }
         
-        .house-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; position: relative; }
-        .house-info { padding: 25px; }
+        .house-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; }
+        .house-info { padding: 25px; flex-grow: 1; }
         .location { color: var(--accent); font-size: 12px; font-weight: bold; text-transform: uppercase; }
         .price { color: #111; font-size: 24px; font-weight: bold; margin: 10px 0; }
         
-        /* Buttons */
         .btn-main { display: block; background: var(--bg-dark); color: var(--accent); text-align: center; padding: 14px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 10px; border: 1px solid var(--accent); cursor: pointer; }
         .btn-detail { display: block; background: #f8f8f8; color: #555; text-align: center; padding: 10px; text-decoration: none; font-size: 14px; border-radius: 8px; margin-top: 10px; border: 1px solid #ddd; cursor: pointer; }
 
-        /* The Modal (Pop-up Window) */
+        /* Modal Styles */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
         .modal-content { background: white; margin: 5% auto; padding: 30px; width: 90%; max-width: 600px; border-radius: 20px; position: relative; }
         .close-modal { position: absolute; right: 20px; top: 20px; font-size: 30px; cursor: pointer; color: #999; }
-        
-        .modal-h3 { color: var(--bg-dark); margin-top: 0; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
         .modal-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
         .feature-item { background: #f9f9f9; padding: 10px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--accent); }
 
@@ -45,12 +42,12 @@
 
 <header>
     <h1>ADVENTURE SEEKERS</h1>
-    <p>INTERNATIONAL PROPERTY PORTAL</p>
+    <p>PREMIUM GLOBAL REAL ESTATE</p>
 </header>
 
 <div class="container">
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by city or country..." onkeyup="searchHouses()">
+        <input type="text" id="searchInput" placeholder="Search city, country, or house type..." onkeyup="searchHouses()">
     </div>
 
     <div id="property-list">
@@ -59,8 +56,8 @@
                 <p class="location">📍 Dublin, Ireland</p>
                 <h3>No. 42 O'Connell Street</h3>
                 <p class="price">€1,850 / month</p>
-                <button class="btn-detail" onclick="openModal('Dublin Flat', 'No. 42 O\'Connell Street, Dublin 1', '€1,850', '2 Bedrooms, 1 Bathroom, Full Kitchen', 'This historic Georgian-style apartment offers stunning city views, a large master bedroom with fitted wardrobes, and a newly renovated kitchen with stainless steel appliances. Perfect for city professionals.')">VIEW FULL DETAILS</button>
-                <a href="https://wa.me/447478710824?text=Interested in Dublin Flat" class="btn-main">BOOK INSPECTION</a>
+                <button class="btn-detail" onclick="openModal('Georgian Flat', 'No. 42 O\'Connell Street, Dublin 1', '€1,850', '2 Bedrooms, 1 Bathroom, Full Kitchen, Central Heating', 'A beautiful historic apartment in the heart of Dublin. Features high ceilings, large windows, and modern appliances. Walking distance to shops and transit.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in No. 42 Dublin" class="btn-main">BOOK INSPECTION</a>
             </div>
         </div>
 
@@ -68,9 +65,49 @@
             <div class="house-info">
                 <p class="location">📍 Houston, USA</p>
                 <h3>1152 Peachtree Rd NW</h3>
-                <p class="price">$2,200 / month</p>
-                <button class="btn-detail" onclick="openModal('Suburban Home', '1152 Peachtree Rd NW, Atlanta, USA', '$2,200', '3 Bedrooms, 2.5 Bathrooms, 2-Car Garage, Backyard', 'A beautiful family home in a quiet neighborhood. Features include a spacious open-concept living area, high-end kitchen cabinets, and a massive backyard for outdoor activities.')">VIEW FULL DETAILS</button>
-                <a href="https://wa.me/447478710824?text=Interested in Houston Home" class="btn-main">BOOK INSPECTION</a>
+                <p class="price">$1,850 / month</p>
+                <button class="btn-detail" onclick="openModal('Modern Family Home', '1152 Peachtree Rd NW, Houston, TX', '$1,850', '3 Bedrooms, 2 Bathrooms, 2-Car Garage, Modern Kitchen', 'Located in a quiet suburban neighborhood. This home features a large backyard, an open-concept kitchen with island, and spacious bedrooms.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in 1152 Peachtree USA" class="btn-main">BOOK INSPECTION</a>
+            </div>
+        </div>
+
+        <div class="house-card">
+            <div class="house-info">
+                <p class="location">📍 Helsinki, Finland</p>
+                <h3>Mannerheimintie 12</h3>
+                <p class="price">€950 / month</p>
+                <button class="btn-detail" onclick="openModal('Nordic Studio', 'Mannerheimintie 12, Helsinki', '€950', '1 Bedroom, 1 Bathroom, Private Sauna, Heated Floors', 'Experience authentic Finnish living. This sleek city studio includes a private sauna and minimalist Nordic design. Perfect for singles or students.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in Mannerheimintie Finland" class="btn-main">BOOK INSPECTION</a>
+            </div>
+        </div>
+
+        <div class="house-card">
+            <div class="house-info">
+                <p class="location">📍 Galway, Ireland</p>
+                <h3>15 Eyre Square</h3>
+                <p class="price">€1,400 / month</p>
+                <button class="btn-detail" onclick="openModal('Traditional Cottage', '15 Eyre Square, Galway', '€1,400', '2 Bedrooms, 1 Bathroom, Fireplace, Garden', 'A cozy, traditional cottage near the coast. Includes a functioning fireplace and a large garden. Ideal for a small family or a peaceful retreat.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in 15 Eyre Square Galway" class="btn-main">BOOK INSPECTION</a>
+            </div>
+        </div>
+
+        <div class="house-card">
+            <div class="house-info">
+                <p class="location">📍 Orlando, USA</p>
+                <h3>8801 Sunnyside Blvd</h3>
+                <p class="price">$315,000 (Sale)</p>
+                <button class="btn-detail" onclick="openModal('Holiday Villa', '8801 Sunnyside Blvd, Orlando, FL', '$315,000', '4 Bedrooms, 3 Bathrooms, Private Pool, Furnished', 'A perfect investment property or holiday home. This large villa is fully furnished and features a private screened-in pool near the major theme parks.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in Sunnyside Sale USA" class="btn-main">VIEW DETAILS</a>
+            </div>
+        </div>
+
+        <div class="house-card">
+            <div class="house-info">
+                <p class="location">📍 Tampere, Finland</p>
+                <h3>Satakunnankatu 5</h3>
+                <p class="price">€1,150 / month</p>
+                <button class="btn-detail" onclick="openModal('Lakeview Apartment', 'Satakunnankatu 5, Tampere', '€1,150', '2 Bedrooms, 1 Bathroom, Balcony, Modern Kitchen', 'Bright and airy apartment with a view of the lake. Close to the city center and public transportation. Modern building with energy-efficient heating.')">VIEW FULL DETAILS</button>
+                <a href="https://wa.me/447478710824?text=Interested in Satakunnankatu Finland" class="btn-main">BOOK INSPECTION</a>
             </div>
         </div>
     </div>
@@ -79,21 +116,17 @@
 <div id="houseModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h3 id="m-title" class="modal-h3">House Details</h3>
+        <h3 id="m-title" style="border-bottom: 2px solid var(--accent); padding-bottom:10px;">House Details</h3>
         <p><strong>Address:</strong> <span id="m-address"></span></p>
         <p><strong>Price:</strong> <span id="m-price"></span></p>
-        
-        <div class="modal-features" id="m-features">
-            </div>
-
+        <div class="modal-features" id="m-features"></div>
         <p id="m-desc" style="line-height:1.6; color:#555;"></p>
-        
-        <a id="m-wa" href="#" class="btn-main" target="_blank">CONTACT AGENT ABOUT THIS HOUSE</a>
+        <a id="m-wa" href="#" class="btn-main" target="_blank">SEND INQUIRY VIA WHATSAPP</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Adventure Seekers Rentals.</p>
+    <p>&copy; 2026 Adventure Seekers Rentals. Your Trusted Property Partner.</p>
 </footer>
 
 <script>
@@ -102,32 +135,17 @@
         document.getElementById('m-address').innerText = address;
         document.getElementById('m-price').innerText = price;
         document.getElementById('m-desc').innerText = desc;
-        
-        // Split features by comma and create boxes
         const featList = features.split(',');
         let featHtml = '';
-        featList.forEach(f => {
-            featHtml += `<div class="feature-item">✔️ ${f.trim()}</div>`;
-        });
+        featList.forEach(f => { featHtml += `<div class="feature-item">✔️ ${f.trim()}</div>`; });
         document.getElementById('m-features').innerHTML = featHtml;
-        
-        // Update WhatsApp link in modal
-        document.getElementById('m-wa').href = "https://wa.me/447478710824?text=I want more details about " + address;
-        
+        document.getElementById('m-wa').href = "https://wa.me/447478710824?text=I'm interested in: " + address;
         document.getElementById('houseModal').style.display = "block";
     }
 
-    function closeModal() {
-        document.getElementById('houseModal').style.display = "none";
-    }
-
-    // Close modal if user clicks outside of it
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('houseModal')) {
-            closeModal();
-        }
-    }
-
+    function closeModal() { document.getElementById('houseModal').style.display = "none"; }
+    window.onclick = function(event) { if (event.target == document.getElementById('houseModal')) { closeModal(); } }
+    
     function searchHouses() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.getElementsByClassName('house-card');
