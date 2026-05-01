@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Seekers | Global Luxury Residential</title>
+    <title>Adventure Seekers | Premium European Housing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -16,44 +16,43 @@
         .property-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #edf2f7; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
         .property-card:hover { transform: translateY(-10px); border-color: #0a254d; }
         
-        /* Fixed Slider Styles */
+        /* Universal Slider Styles */
         .slider-container { position: relative; height: 230px; width: 100%; overflow: hidden; background: #eee; }
-        .slider { display: flex; transition: transform 0.4s ease-in-out; height: 100%; }
+        .slider { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
         .slider img { min-width: 100%; object-fit: cover; height: 100%; }
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: white; width: 35px; height: 35px; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; z-index: 10; border: none; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: white; padding: 10px 14px; cursor: pointer; border-radius: 50%; font-size: 14px; z-index: 10; }
         .prev { left: 10px; }
         .next { right: 10px; }
     </style>
 </head>
 <body>
 
-    <!-- WhatsApp Floating Button (USA Number Fixed) -->
+    <!-- Professional WhatsApp Link - Fixed per instructions -->
     <a href="https://wa.me/14234356200" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Hero Header -->
+    <!-- Expansive European Branding -->
     <header class="hero-gradient text-white pt-16 pb-24 px-6 text-center">
         <h1 class="text-5xl font-bold tracking-tighter mb-4">ADVENTURE SEEKERS</h1>
-        <p class="text-xs tracking-[0.4em] font-light opacity-80 uppercase">Elite Global Residential Portfolio • 20 Premium Residences</p>
+        <p class="text-xs tracking-[0.4em] font-light opacity-90 uppercase">Premier Residential Housing Across Europe</p>
     </header>
 
-    <!-- Property Grid -->
     <section class="max-w-7xl mx-auto px-6 py-20">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             
-            <!-- 1. Limerick Studio (Henry St) with Slider -->
+            <!-- 1. Limerick Studio (Henry St) Gallery -->
             <div class="property-card">
                 <div class="slider-container">
                     <div class="slider" id="henrySlider">
-                        <img src="henry-st-1.jpg. 4.JPG" alt="Kitchen View">
-                        <img src="henry-st-1.jpg. 3.JPG" alt="Bathroom View">
-                        <img src="henry-st-1.jpg. 2.JPG" alt="Bedroom View">
-                        <img src="henry-st-1.jpg..JPG" alt="Living View">
-                        <img src="henry-st-1.jpg. .JPG" alt="Dining View">
+                        <img src="henry-st-1.jpg. 4.JPG">
+                        <img src="henry-st-1.jpg. 3.JPG">
+                        <img src="henry-st-1.jpg. 2.JPG">
+                        <img src="henry-st-1.jpg..JPG">
+                        <img src="henry-st-1.jpg. .JPG">
                     </div>
-                    <button class="slider-btn prev" onclick="moveSlider(-1)">❮</button>
-                    <button class="slider-btn next" onclick="moveSlider(1)">❯</button>
+                    <div class="slider-btn prev" onclick="moveSlider1(-1)">❮</div>
+                    <div class="slider-btn next" onclick="moveSlider1(1)">❯</div>
                 </div>
                 <div class="p-8 flex-grow flex flex-col">
                     <div class="flex justify-between items-center mb-4">
@@ -61,96 +60,90 @@
                         <span class="text-xl font-bold text-brand">€1,220<small class="text-xs text-gray-400">/mo</small></span>
                     </div>
                     <h4 class="text-xl font-bold mb-3">67 Henry Street Studio</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow">A sleek, fully renovated executive studio at South Circular Road. Features a modern grey kitchen, integrated laundry, and high-spec shower.</p>
+                    <p class="text-gray-500 text-sm mb-6 flex-grow">A masterfully renovated executive studio. Features a bespoke charcoal kitchen, integrated laundry, and high-end finishes throughout.</p>
                     <div class="grid grid-cols-2 gap-4 text-xs text-gray-600 mb-8 font-semibold border-t pt-4">
-                        <span><i class="fa fa-home mr-2 text-brand"></i> Modern Loft</span>
-                        <span><i class="fa fa-washer mr-2 text-brand"></i> Laundry</span>
-                        <span><i class="fa fa-shower mr-2 text-brand"></i> Tiled Bath</span>
-                        <span><i class="fa fa-bolt mr-2 text-brand"></i> All Bills Incl.</span>
+                        <span><i class="fa fa-home mr-2 text-brand"></i> Studio Loft</span>
+                        <span><i class="fa fa-shower mr-2 text-brand"></i> Walk-in Bath</span>
                     </div>
-                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Viewing</button>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Now</button>
                 </div>
             </div>
 
-            <!-- 2. Limerick Studio (Caherdavin) -->
+            <!-- 2. Limerick Studio (Caherdavin) Gallery -->
             <div class="property-card">
-                <div class="h-52 bg-zinc-100 flex items-center justify-center italic text-zinc-400">Caherdavin Exterior</div>
+                <div class="slider-container">
+                    <div class="slider" id="caherdavinSlider">
+                        <img src="Caherdavin-st-1.jpg. 4.JPG">
+                        <img src="Caherdavin-st-1.jpg. 3.JPG">
+                        <img src="Caherdavin-st-1.jpg. 2.JPG">
+                        <img src="Caherdavin-st-1.jpg..JPG">
+                        <img src="Caherdavin-st-1.jpg. .JPG">
+                    </div>
+                    <div class="slider-btn prev" onclick="moveSlider2(-1)">❮</div>
+                    <div class="slider-btn next" onclick="moveSlider2(1)">❯</div>
+                </div>
                 <div class="p-8 flex-grow flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xs font-bold text-blue-800 uppercase tracking-widest">Ireland</span>
                         <span class="text-xl font-bold text-brand">€1,270<small class="text-xs text-gray-400">/mo</small></span>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Caherdavin Suburban Studio</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow">Spacious studio in a quiet residential cul-de-sac. Excellent transport links to Shannon and Limerick City centre.</p>
+                    <p class="text-gray-500 text-sm mb-6 flex-grow">Self-contained ground-floor studio in a tranquil residential quarter. Combines suburban peace with rapid city access.</p>
                     <div class="grid grid-cols-2 gap-4 text-xs text-gray-600 mb-8 font-semibold border-t pt-4">
-                        <span><i class="fa fa-home mr-2 text-brand"></i> Studio</span>
-                        <span><i class="fa fa-parking mr-2 text-brand"></i> Parking</span>
-                        <span><i class="fa fa-wifi mr-2 text-brand"></i> 5G Ready</span>
+                        <span><i class="fa fa-parking mr-2 text-brand"></i> Private Parking</span>
                         <span><i class="fa fa-couch mr-2 text-brand"></i> Furnished</span>
                     </div>
-                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Viewing</button>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Now</button>
                 </div>
             </div>
 
-            <!-- 3. Dublin, Ireland -->
+            <!-- 3. Helsinki, Finland -->
             <div class="property-card">
-                <div class="h-52 bg-zinc-100 flex items-center justify-center italic text-zinc-400">Dublin Docks</div>
+                <div class="h-[230px] bg-zinc-100 flex items-center justify-center italic text-zinc-400 font-bold">Nordic Interior</div>
                 <div class="p-8 flex-grow flex flex-col">
-                    <div class="flex justify-between items-center mb-4"><span class="text-xs font-bold text-blue-800 uppercase">Ireland</span><span class="text-xl font-bold text-brand">€2,900<small class="text-xs">/mo</small></span></div>
-                    <h4 class="text-xl font-bold mb-3">Silicon Docks Penthouse</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow">Luxury 2-bedroom corporate apartment in Dublin’s tech hub. Features 24-hour concierge and waterfront balconies.</p>
-                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Viewing</button>
+                    <div class="flex justify-between items-center mb-4"><span class="text-xs font-bold text-blue-800 uppercase tracking-widest">Finland</span><span class="text-xl font-bold text-brand">€2,100<small class="text-xs">/mo</small></span></div>
+                    <h4 class="text-xl font-bold mb-3">Helsinki Modern Suite</h4>
+                    <p class="text-gray-500 text-sm mb-6 flex-grow">Pristine minimalist design with a private sauna. Floor-to-ceiling windows offer panoramic views of the city skyline.</p>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase">Book Now</button>
                 </div>
             </div>
 
-            <!-- 4. Helsinki, Finland -->
-            <div class="property-card">
-                <div class="p-8 flex-grow flex flex-col">
-                    <div class="flex justify-between items-center mb-4"><span class="text-xs font-bold text-blue-800 uppercase">Finland</span><span class="text-xl font-bold text-brand">€2,100<small class="text-xs">/mo</small></span></div>
-                    <h4 class="text-xl font-bold mb-3">Modern Helsinki Suite</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow">Minimalist Nordic design featuring a private sauna and high-efficiency climate control.</p>
-                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Viewing</button>
-                </div>
-            </div>
-
-            <!-- 5. Amsterdam, Netherlands -->
+            <!-- 4. Amsterdam, Netherlands -->
             <div class="property-card">
                 <div class="p-8 flex-grow flex flex-col">
-                    <div class="flex justify-between items-center mb-4"><span class="text-xs font-bold text-blue-800 uppercase">Netherlands</span><span class="text-xl font-bold text-brand">€2,850<small class="text-xs">/mo</small></span></div>
-                    <h4 class="text-xl font-bold mb-3">Canal-Side Boutique Loft</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow">Historic 17th-century architecture meets modern industrial interior in the heritage district.</p>
-                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Viewing</button>
+                    <div class="flex justify-between items-center mb-4"><span class="text-xs font-bold text-blue-800 uppercase tracking-widest">Netherlands</span><span class="text-xl font-bold text-brand">€2,850<small class="text-xs">/mo</small></span></div>
+                    <h4 class="text-xl font-bold mb-3">Canal-Side Heritage Loft</h4>
+                    <p class="text-gray-500 text-sm mb-6 flex-grow">Historic architecture meets industrial luxury. Located along the iconic canals with prime access to heritage landmarks.</p>
+                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase">Book Now</button>
                 </div>
             </div>
 
-            <!-- 6. Charlotte, USA -->
-            <div class="property-card">
-                <div class="p-8 flex-grow flex flex-col">
-                    <div class="flex justify-between items-center mb-4"><span class="text-xs font-bold text-blue-800 uppercase">USA</span><span class="text-xl font-bold text-brand">$3,400<small class="text-xs">/mo</small></span></div>
-                    <h4 class="text-xl font-bold mb-3">Charlotte Dilworth Estate</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-grow">Historic Southern charm meets modern renovation. Large garden and chef's kitchen in NC's premier neighborhood.</p>
-                    <button class="w-full py-3 border-2 border-blue-900 text-blue-900 font-bold rounded-xl text-xs uppercase hover:bg-blue-900 hover:text-white transition">Book Viewing</button>
-                </div>
-            </div>
-
-            <!-- Full list continues to 20 listings in the same format -->
+            <!-- Additional listings for Zurich, Madrid, Oslo, Rome, etc. go here -->
 
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-white py-16 text-center border-t">
-        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-300 font-bold">Adventure Seekers Global Residential Portfolio</p>
+        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-300 font-bold">Adventure Seekers | Global Portfolio</p>
     </footer>
 
-    <!-- Slider Script -->
     <script>
-        let currentIdx = 0;
-        function moveSlider(direction) {
+        // Gallery control for Henry Street
+        let currentIdx1 = 0;
+        function moveSlider1(direction) {
             const slider = document.getElementById('henrySlider');
-            const totalImages = slider.children.length;
-            currentIdx = (currentIdx + direction + totalImages) % totalImages;
-            slider.style.transform = `translateX(-${currentIdx * 100}%)`;
+            const total = slider.children.length;
+            currentIdx1 = (currentIdx1 + direction + total) % total;
+            slider.style.transform = `translateX(-${currentIdx1 * 100}%)`;
+        }
+
+        // Gallery control for Caherdavin
+        let currentIdx2 = 0;
+        function moveSlider2(direction) {
+            const slider = document.getElementById('caherdavinSlider');
+            const total = slider.children.length;
+            currentIdx2 = (currentIdx2 + direction + total) % total;
+            slider.style.transform = `translateX(-${currentIdx2 * 100}%)`;
         }
     </script>
 
